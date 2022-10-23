@@ -8,7 +8,9 @@
   </li>
   <li>
     Due on:
-    <%= @todoList.due_date.strftime("%B %d, %Y") %>
+    <%=  if @todoList.due_date != nil 
+        @todoList.due_date.strftime("%B %d, %Y") 
+    end   %>
   </li>
 </ul>
 
