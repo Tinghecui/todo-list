@@ -21,3 +21,14 @@ movies = [{:title => 'Aladdin', :rating => 'G', :release_date => '25-Nov-1992'},
 movies.each do |movie|
   Movie.create!(movie)
 end
+
+items = [{:name => 'Homework', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+			{:name => 'Physics', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+			{:name => 'Chemistry', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+			{:name => 'English', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+			{:name => 'History', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+  	 ]
+
+items.each do |item|
+  TodoList.create!(item)
+end
