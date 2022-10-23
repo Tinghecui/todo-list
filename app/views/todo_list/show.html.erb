@@ -1,0 +1,19 @@
+<!--  app/views/movies/show.html.erb -->
+<h2>Details about <em><%= @todoList.name %></em></h2>
+
+<ul id="details">
+  <li>
+    Creation Date:
+    <%= @todoList.creation_date.strftime("%B %d, %Y") %>
+  </li>
+  <li>
+    Due on:
+    <%= @todoList.due_date.strftime("%B %d, %Y") %>
+  </li>
+</ul>
+
+<div class="row">
+  <%= link_to 'Edit', edit_todo_list_path(@todoList), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Delete', todo_list_path(@todoList), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Back', todo_list_index_path, :class => 'btn btn-primary col-2' %>
+</div>

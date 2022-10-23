@@ -1,6 +1,6 @@
-class CreateTodoList < ActiveRecord::Migration
+class CreateTodoLists < ActiveRecord::Migration
   def up
-    create_table :todoList do |t|
+    create_table :todo_lists do |t|
       t.string :name
       t.datetime :creation_date
       t.datetime :due_date
@@ -11,6 +11,6 @@ class CreateTodoList < ActiveRecord::Migration
   end
 
   def down
-    drop_table :todoList
+    drop_table :todo_lists
   end
 end

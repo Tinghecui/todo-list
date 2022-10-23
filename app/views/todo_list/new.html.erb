@@ -1,0 +1,13 @@
+<h2>Create New Item</h2>
+
+<%= form_tag todo_list_index_path, :class => 'form' do %>
+  <%= label :todo_list, :name, 'Name', :class => 'col-form-label' %>
+  <%= text_field :todo_list, :name, :class => 'form-control' %>
+  <%= label :todo_list, :creation_date, 'Created On', :class => 'col-form-label'  %>
+  <%= date_select :todo_list, :creation_date, {}, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= label :todo_list, :due_date, 'Created On', :class => 'col-form-label'  %>
+  <%= date_select :todo_list, :due_date, {}, :class => 'form-control col-2 d-inline' %>
+  <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>
+<% end %>
