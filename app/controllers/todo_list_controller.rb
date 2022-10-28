@@ -42,7 +42,7 @@ class TodoListController < ApplicationController
     # # Making "internal" methods private is not required, but is a common practice.
     # # This helps make clear which methods respond to requests, and which ones do not.
     def todo_list_params
-      params.require(:todo_list).permit(:name, :creation_date, :due_date)
+      params.require(:todo_list).permit(:name, :task_size, :priority, :task_link, :estimate_time, :creation_date, :due_date)
     end
   end
   
