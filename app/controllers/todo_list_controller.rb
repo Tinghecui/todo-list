@@ -21,21 +21,21 @@ class TodoListController < ApplicationController
     end
   
     def edit
-      @todoList = Movie.find params[:id]
+      @todoList = TodoList.find params[:id]
     end
   
-    # def update
-    #   @todoList = TodoList.find params[:id]
-    #   @todoList.update_attributes!(todo_list_params)
-    #   flash[:notice] = "#{@todo_list.name} was successfully updated."
-    #   redirect_to todo_list_path(@todoList)
-    # end
+    def update
+      @todoList = TodoList.find params[:id]
+      @todoList.update_attributes!(todo_list_params)
+      flash[:notice] = "#{@todoList.name} was successfully updated."
+      redirect_to todo_list_path(@todoList)
+    end
   
     def destroy
-      @todoList = TodoList.find(params[:id])
+      @todoList = TodoList.find params[:id]
       @todoList.destroy
       flash[:notice] = "Item '#{@todoList.name}' deleted."
-      redirect_to todo_list_path
+      redirect_to todo_list_index_path
     end
   
     # private
