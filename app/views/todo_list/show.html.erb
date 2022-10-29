@@ -11,6 +11,14 @@
     <%= @todoList.task_link%>
   </li>
   <li>
+    Task Size:
+    <%= @todoList.task_size%>
+  </li>
+  <li>
+    Estimate Time:
+    <%= @todoList.estimate_time%>
+  </li>
+  <li>
     Creation Date:
     <%= @todoList.creation_date.strftime("%B %d, %Y") %>
   </li>
@@ -23,7 +31,7 @@
 </ul>
 
 <div class="row m-4 mt-5">
-  <%= link_to 'Edit', edit_todo_list_path(@todoList), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', todo_list_path(@todoList), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
-  <%= link_to 'Back', todo_list_index_path, :class => 'btn btn-secondary col-2' %>
+  <%= link_to 'Edit', edit_todo_list_path(@todoList), :class => 'btn btn-primary col-1 mx-1' %>
+  <%= link_to 'Delete', todo_list_path(@todoList), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-1 mx-1' %>
+  <%= link_to 'Back', todo_list_index_path, :class => 'btn btn-secondary col-1 mx-1' %>
 </div>
