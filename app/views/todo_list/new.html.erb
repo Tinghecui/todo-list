@@ -1,13 +1,20 @@
-<h2>Create New Item</h2>
+<h2 class="my-4">Create New Item</h2>
 
 <%= form_tag todo_list_index_path, :class => 'form' do %>
   <%= label :todo_list, :name, 'Name', :class => 'col-form-label' %>
-  <%= text_field :todo_list, :name, :class => 'form-control' %>
-  <%= label :todo_list, :creation_date, 'Created On', :class => 'col-form-label'  %>
+  <%= text_field :todo_list, :name, :class => 'form-control col-5 d-inline' %>
+  <%= label :todo_list, :priority, 'Priority', :class => 'col-form-label ml-3' %>
+  <%= text_field :todo_list, :priority, :class => 'form-control col-4 d-inline' %>
+  <br/>
+  <%= label :todo_list, :task_link, 'Task Link', :class => 'col-form-label mt-3' %>
+  <%= text_field :todo_list, :task_link, :class => 'form-control' %>
+  <br/>
+  <%= label :todo_list, :creation_date, 'Create On', :class => 'col-form-label my-3'  %>
   <%= date_select :todo_list, :creation_date, {}, :class => 'form-control col-2 d-inline' %>
   <br/>
-  <%= label :todo_list, :due_date, 'Created On', :class => 'col-form-label'  %>
+  <%= label :todo_list, :due_date, 'Due On', :class => 'col-form-label my-3'  %>
   <%= date_select :todo_list, :due_date, {}, :class => 'form-control col-2 d-inline' %>
-  <%= submit_tag 'Save Changes', :class => 'btn btn-primary' %>
+  <br/>
+  <%= submit_tag 'Save Changes', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>
 <% end %>

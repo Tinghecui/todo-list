@@ -1,27 +1,28 @@
 <!--  This file is app/views/movies/index.html.erb -->
-<h2>All Reminders</h2>
+<h2 class="my-4">All Reminders</h2>
 
 <%#  Part 2: Start here... %>
 
 <table class="table table-striped col-md-12" id="todoList">
   <thead>
     <tr>
+      <th>Priority</th>
       <th>Name</th>
-      <th>Creation Date</th>
-      <th>Due date</th>
+      <th>Due Date</th>
+      <th>More Info</th>
     </tr>
   </thead>
   <tbody>
     <% @todoLists.each do |item| %>
       <tr>
         <td>
+          <%= item.priority %>
+        </td>
+        <td>
           <%= item.name %>
         </td>
         <td>
-          <%= item.creation_date %>
-        </td>
-        <td>
-          <%= item.due_date %>
+          <%= item.due_date.strftime("%B %d, %Y") %>
         </td>
         <td>
           <%= link_to "More about #{item.name}", todo_list_path(item) %>
@@ -30,5 +31,6 @@
     <% end %>
   </tbody>
 </table>
-<%= link_to 'Add new item', new_todo_list_path, :class => 'btn btn-primary' %>
+
+<%= link_to 'Add New Task', new_todo_list_path, :class => 'btn btn-primary my-4' %>
 
