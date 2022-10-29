@@ -1,3 +1,10 @@
+Names and UNIs:
+Haobo Liu (hl3645),
+Tinghe Cui (tc3162), 
+Rahul Roy (rnr2127),
+Yongfei Tan (yt2775)
+
+
 Steps to run:
 
 bundle install --without production
