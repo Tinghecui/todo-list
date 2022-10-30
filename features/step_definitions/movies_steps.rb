@@ -5,6 +5,14 @@ Given /the following movies exist/ do |movies_table|
   end
 end
 
+# Then /^(?:|I )should see "([^"]*)"$/ do |text|
+#   if page.respond_to? :should
+#     page.should have_content(text)
+#   else
+#     assert page.has_content?(text)
+#   end
+# end
+
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
