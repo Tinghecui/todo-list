@@ -7,11 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-items = [{:name => 'Homework', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
-			{:name => 'Physics', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
-			{:name => 'Chemistry', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
-			{:name => 'English', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
-			{:name => 'History', :creation_date => '25-Nov-1992', :due_date => '25-Nov-1993'},
+items = [{:name => 'Homework1', :creation_date => '10-Nov-2022', :due_date => '11-Nov-2022',
+			:priority => '1', :task_link => 'http://www.cs.columbia.edu/~junfeng/22fa-w4152/assignments.html'},
+		{:name => 'Physics', :creation_date => '15-Nov-2022', :due_date => '25-Nov-2022', :priority => '2'}
   	 ]
 
 items.each do |item|
