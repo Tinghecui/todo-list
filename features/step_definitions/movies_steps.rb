@@ -1,7 +1,7 @@
 
-Given /the following movies exist/ do |movies_table|
-  movies_table.hashes.each do |movie|
-    Movie.create movie
+Given /the following tasks exist/ do |list_table|
+  list_table.hashes.each do |task|
+    TodoList.create task
   end
 end
 
