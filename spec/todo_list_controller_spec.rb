@@ -20,6 +20,12 @@ RSpec.describe TodoListController, type: :controller do
       get :edit, :id => task.id
       expect(response).to render_template("todo_list/edit")
     end
+    it "should update info" do
+      TodoList.delete_all
+      task = TodoList.create(name: 'hw3', due_date: '2022-11-26')
+      post :update, :id => 1, :todo_list => {:priority=> "2"}
+      expect(response).to redirect_to todo_list_path(1)
+    end
   end
 
   describe "GET detail" do

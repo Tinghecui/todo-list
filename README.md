@@ -12,8 +12,11 @@ bin/rake db:setup # shorthand for db:create, db:migrate, db:seed
 rails server -b 0.0.0.0  
 ```
 
-### Other details:  
+### Heroku deployment link
+[Heroku Link](https://mysterious-chamber-16003.herokuapp.com/todo_list)
+
+### Environment & Other details:  
 Branch - Master   
-OS - Mac  
 Ruby version -  2.6.8  
+OS - Mac  
 
