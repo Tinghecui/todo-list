@@ -14,12 +14,16 @@ module NavigationHelpers
     case page_name
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/todo_list'
+
     when /^the edit page for "(.*)"$/
       todo_id = TodoList.find_by(name: $1).id
-      todo_list_path(todo_id)
+      # puts todo_id
+      edit_todo_list_path(todo_id)
+
     when /^the details page for "(.*)"$/
       todo_id = TodoList.find_by(name: $1).id
-      todo_list_path(movie_id)
+      # puts todo_id
+      todo_list_path(todo_id)
 
 
     else
