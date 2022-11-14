@@ -14,20 +14,22 @@
   </thead>
   <tbody>
     <% @todoLists.each do |item| %>
-      <tr>
-        <td>
-          <%= item.priority %>
-        </td>
-        <td>
-          <%= item.name %>
-        </td>
-        <td>
-          <%= item.due_date.strftime("%B %d, %Y") %>
-        </td>
-        <td>
-          <%= link_to "More about #{item.name}", todo_list_path(item) %>
-        </td>
-      </tr>
+      <% if item.user == current_user %>
+        <tr>
+          <td>
+            <%= item.priority %>
+          </td>
+          <td>
+            <%= item.name %>
+          </td>
+          <td>
+            <%= item.due_date.strftime("%B %d, %Y") %>
+          </td>
+          <td>
+            <%= link_to "More about #{item.name}", todo_list_path(item) %>
+          </td>
+        </tr>
+      <% end%>
     <% end %>
   </tbody>
 </table>
