@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.6.8'
+ruby '2.6.6'
 gem 'rails', '4.2.10'
-
+gem 'devise', '~> 4.7', '>= 4.7.3'
 # for Heroku deployment 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
