@@ -1,7 +1,16 @@
 <!--  This file is app/views/movies/index.html.erb -->
 <h2 class="my-4">All Reminders</h2>
 
-<%#  Part 2: Start here... %>
+<%= form_tag todo_list_index_path, method: :get, id: 'priorities_form' do %>
+  Include:
+  <% @all_priorities.each do |p| %>
+    <div class="form-check  form-check-inline">
+      <%= label_tag "priorities[#{p}]", p, class: 'form-check-label' %>
+      <%= check_box_tag "priorities[#{p}]", "1",  @priorities_to_show.include?(p), class: 'form-check-input' %>
+    </div>
+  <% end %>
+  <%= submit_tag 'Refresh', id: 'priority_submit', class: 'btn btn-primary' %>
+<% end %>
 
 <table class="table table-striped col-md-12" id="todoList">
   <thead>

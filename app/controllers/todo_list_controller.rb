@@ -8,6 +8,30 @@ class TodoListController < ApplicationController
   
     def index
       @todoLists = TodoList.all
+      @all_priorities = TodoList.all_priorities
+      @priorities_to_show = []
+
+      priorities = params[:priorities]
+
+          
+    if priorities != nil
+      priorities.each do |key, value|
+        @priorities_to_show.append(key)
+        # @rating_hash[key] = value
+      end
+      @todoLists = TodoList.with_priorities(@priorities_to_show)
+    # elsif ratings != nil && filter == nil
+    #   ratings.each do |key, value|
+    #     @priorities_to_show.append(key)
+    #     # @rating_hash[key] = value
+    #   end
+    #   @movies = Movie.with_ratings(@ratings_to_show)
+    # elsif ratings == nil 
+    #   @movies = Movie.order(filter)
+    else 
+      @todoLists = TodoList.with_priorities(nil)
+    end
+
     end
   
     def new
