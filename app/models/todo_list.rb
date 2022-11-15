@@ -5,8 +5,6 @@ class TodoList < ActiveRecord::Base
     end 
 
     def self.with_priorities(priority_list)
-        # if ratings_list is an array such as ['G', 'PG', 'R'], retrieve all
-        #  movies with those ratings
         if priority_list != nil 
           TodoList.where(priority: priority_list)
         else 

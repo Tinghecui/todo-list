@@ -17,17 +17,8 @@ class TodoListController < ApplicationController
     if priorities != nil
       priorities.each do |key, value|
         @priorities_to_show.append(key)
-        # @rating_hash[key] = value
       end
       @todoLists = TodoList.with_priorities(@priorities_to_show)
-    # elsif ratings != nil && filter == nil
-    #   ratings.each do |key, value|
-    #     @priorities_to_show.append(key)
-    #     # @rating_hash[key] = value
-    #   end
-    #   @movies = Movie.with_ratings(@ratings_to_show)
-    # elsif ratings == nil 
-    #   @movies = Movie.order(filter)
     else 
       @todoLists = TodoList.with_priorities(nil)
     end
