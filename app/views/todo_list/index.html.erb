@@ -25,9 +25,15 @@
     <% @todoLists.each do |item| %>
       <% if item.user == current_user %>
         <tr>
+        <% if item.priority == 'High' %>
+          <td class = "hilite bg-danger">
+            <%= item.priority %>
+          </td>
+        <% else %>
           <td>
             <%= item.priority %>
           </td>
+        <% end %>
           <td>
             <%= item.name %>
           </td>
