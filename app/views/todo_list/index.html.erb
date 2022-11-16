@@ -24,27 +24,38 @@
   <tbody>
     <% @todoLists.each do |item| %>
       <% if item.user == current_user %>
-        <tr>
         <% if item.priority == 'High' %>
-          <td class = "hilite bg-danger">
-            <%= item.priority %>
-          </td>
+          <tr style="font-weight:bold">
+            <td class = "hilite bg-danger">
+              <%= item.priority %>
+            </td>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.due_date.strftime("%B %d, %Y") %>
+            </td>
+            <td>
+              <%= link_to "More about #{item.name}", todo_list_path(item) %>
+            </td>
+          </tr>
         <% else %>
-          <td>
-            <%= item.priority %>
-          </td>
+          <tr>
+            <td>
+              <%= item.priority %>
+            </td>
+            <td>
+              <%= item.name %>
+            </td>
+            <td>
+              <%= item.due_date.strftime("%B %d, %Y") %>
+            </td>
+            <td>
+              <%= link_to "More about #{item.name}", todo_list_path(item) %>
+            </td>
+          </tr>
         <% end %>
-          <td>
-            <%= item.name %>
-          </td>
-          <td>
-            <%= item.due_date.strftime("%B %d, %Y") %>
-          </td>
-          <td>
-            <%= link_to "More about #{item.name}", todo_list_path(item) %>
-          </td>
-        </tr>
-      <% end%>
+      <% end %>
     <% end %>
   </tbody>
 </table>
