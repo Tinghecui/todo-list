@@ -1,14 +1,13 @@
 <h2 class="my-4">Create New Task</h2>
 
 <%= form_tag todo_list_index_path, :class => 'form' do %>
-  <%= label :todo_list, :user_id, 'User', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :user_id, :value => current_user.id, :class => 'form-control col-3 d-inline' %>
+  <%= hidden_field :todo_list, :user_id, :value => current_user.id %>
   <br/>
   <%= label :todo_list, :name, 'Name', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :name, :class => 'form-control col-3 d-inline' %>
   <br/>
   <%= label :todo_list, :priority, 'Priority', :class => 'col-form-label my-3 col-2' %>
-  <%= select :todo_list, :priority, options_for_select([['High','High'], ['Medium', 'Medium'], ['Low', 'Low']]), :class => 'form-control col-2 d-inline' %>
+  <%= select :todo_list, :priority, ['High', 'Medium', 'Low'], {}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= label :todo_list, :task_size, 'Task Size', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :task_size, :class => 'form-control col-3 d-inline' %>
