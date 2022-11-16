@@ -41,6 +41,11 @@ Scenario: edit the HW1
   Then  I should not see "Homework1"
   And   I should see "HW2"
 
+Scenario: delete the task Physics 
+  Given I am on the details page for "Physics"
+  And   I press "Delete"
+  Then  I should see "'Physics' deleted"
+
 Scenario: task sort by due date
   When I go to the home page
   Then I follow "Add New Task"
@@ -57,19 +62,19 @@ Scenario: task sort by due date
   And I go to the home page
   Then I should see "HW2" before "HW1"
 
-Scenario: delete the task Physics 
-  Given I am on the details page for "Physics"
-  And   I press "Delete"
-  Then  I should see "'Physics' deleted"
-
 Scenario: restrict to tasks with "High" priority 
   When I go to the home page
   Then I follow "Add New Task"
   And  I fill in "Name" with "HW5"
-  And  I select "Hig" from "Priority"
+  And  I select "High" from "Priority"
   And  I press "Save Changes"
 
   When I check the following priority: High 
   And I uncheck the following priority: Medium, Low
   And I press "Refresh"
   Then I should see the following tasks: HW5 
+
+Scenario: nav bar
+  Given I am on the edit page for "Homework1"
+  And I follow "Tasks"
+  Then  I should see "All Reminders"
