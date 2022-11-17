@@ -3,16 +3,27 @@ require_relative '../support/devise'
 
 RSpec.describe TodoListController, type: :controller do
   describe "GET " do
-        login_user
+    login_user
 
-        context 'from login user' do
-            it 'should return 200:OK' do
-                get :index
-                expect(response).to have_http_status(:success)
-            end
-        end
+    context 'from login user' do
+      it 'should return 200:OK' do
+        get :index
+        expect(response).to have_http_status(:success)
+      end
     end
-  
+  end
+
+  describe "GET " do
+    signout_user
+
+    context 'from signout user' do
+      it 'should return 200:OK' do
+        get :index
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
   describe "GET index" do
     it "should render index template" do
       get :index
