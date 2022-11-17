@@ -26,4 +26,6 @@ bundle exec cucumber
 Branch - proj-iter1
 Ruby version -  2.6.8  
 OS - Mac  
+Devise Autendication - Devise 4.7.3 https://github.com/heartcombo/devise
+
 
