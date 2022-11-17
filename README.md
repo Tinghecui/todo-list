@@ -23,9 +23,9 @@ bundle exec cucumber
 [Heroku Link](https://gentle-ridge-18175.herokuapp.com)
 
 ### Environment & Other details:  
-Branch - proj-iter1
+Branch - proj-iter2  
 Ruby version -  2.6.8  
 OS - Mac  
-Devise Autendication - Devise 4.7.3 https://github.com/heartcombo/devise
+Devise Authentication - Devise 4.7.3  [Devise](https://github.com/heartcombo/devise)
 
 
