@@ -20,7 +20,7 @@ bundle exec cucumber
 ```
 
 ### Heroku deployment link
-[Heroku Link](https://mysterious-chamber-16003.herokuapp.com/todo_list)
+[Heroku Link](https://gentle-ridge-18175.herokuapp.com)
 
 ### Environment & Other details:  
 Branch - proj-iter1
