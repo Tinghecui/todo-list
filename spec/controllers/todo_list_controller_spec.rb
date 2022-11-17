@@ -1,6 +1,18 @@
 require 'rails_helper'
+require_relative '../support/devise'
 
 RSpec.describe TodoListController, type: :controller do
+  describe "GET " do
+        login_user
+
+        context 'from login user' do
+            it 'should return 200:OK' do
+                get :index
+                expect(response).to have_http_status(:success)
+            end
+        end
+    end
+  
   describe "GET index" do
     it "should render index template" do
       get :index
@@ -9,12 +21,14 @@ RSpec.describe TodoListController, type: :controller do
   end
 
   describe 'CREATE new task' do
+    login_user
     it 'should create a new task' do
       expect {post :create, todo_list: {:name=> "hw2", :priority => "2"}}.to change {TodoList.count}.by(1)
     end
   end
 
   describe "EDIT the task" do
+    login_user
     it "should render the edit template" do
       task = TodoList.create!(name: 'hw3', due_date: '2022-11-26')
       get :edit, :id => task.id
@@ -37,6 +51,7 @@ RSpec.describe TodoListController, type: :controller do
   end
 
   describe 'DELETE a task' do
+    login_user
     it 'should delete the task' do
       task = TodoList.create!(name: 'hw3', due_date: '2022-11-26')
       delete :destroy, :id => task.id
