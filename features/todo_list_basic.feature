@@ -25,7 +25,7 @@ Scenario: add a new task
   Then I follow "Add New Task"
   And  I fill in "Name" with "HW3"
   And  I press "Save Changes"
-  Then I should see "HW3"
+  Then I should see "HW3 was successfully created"
 
 Scenario: add a new task but cancel
   When I go to the home page
@@ -68,11 +68,18 @@ Scenario: restrict to tasks with "High" priority
   And  I fill in "Name" with "HW5"
   And  I select "High" from "Priority"
   And  I press "Save Changes"
+  
+  When I go to the home page
+  Then I follow "Add New Task"
+  And  I fill in "Name" with "HW6"
+  And  I select "Medium" from "Priority"
+  And  I press "Save Changes"
 
   When I check the following priority: High 
-  And I uncheck the following priority: Medium, Low
-  And I press "Refresh"
+  And  I uncheck the following priority: Medium, Low
+  And  I press "Refresh"
   Then I should see the following tasks: HW5 
+  And  I should not see the following tasks: HW6 
 
 Scenario: nav bar
   Given I am on the edit page for "Homework1"
