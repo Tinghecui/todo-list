@@ -34,7 +34,7 @@ RSpec.describe TodoListController, type: :controller do
   describe 'CREATE new task' do
     login_user
     it 'should create a new task' do
-      expect {post :create, todo_list: {:name=> "hw2", :priority => "2"}}.to change {TodoList.count}.by(1)
+      expect {post :create, todo_list: {:name=> "hw2", :priority => "High"}}.to change {TodoList.count}.by(1)
     end
   end
 
@@ -48,7 +48,7 @@ RSpec.describe TodoListController, type: :controller do
     it "should update info" do
       TodoList.delete_all
       task = TodoList.create(name: 'hw3', due_date: '2022-11-26')
-      post :update, :id => 1, :todo_list => {:priority=> "2"}
+      post :update, :id => 1, :todo_list => {:priority=> "Low"}
       expect(response).to redirect_to todo_list_path(1)
     end
   end
