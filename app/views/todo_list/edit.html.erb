@@ -17,13 +17,6 @@
   <%= label :todo_list, :task_link, 'Task Link', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :task_link, :value => "#{@todoList.task_link}", :class => 'form-control col-7 d-inline' %>
   <br/>
-  <%= label :todo_list, :creation_date, 'Create On', :class => 'col-form-label my-3 col-2'  %>
-  <%= date_select :todo_list, :creation_date, {default: {
-      year: "#{@todoList.creation_date.strftime("%Y")}", 
-      month: "#{@todoList.creation_date.strftime("%m")}", 
-      day: "#{@todoList.creation_date.strftime("%d")}"
-    }}, :class => 'form-control col-2 d-inline' %>
-  <br/>
   <%= label :todo_list, :due_date, 'Due On', :class => 'col-form-label my-3 col-2' %>
   <%= date_select :todo_list, :due_date, {default: {
       year: "#{@todoList.due_date.strftime("%Y")}", 

@@ -19,10 +19,6 @@
     <%= @todoList.estimate_time%>
   </li>
   <li>
-    Creation Date:
-    <%= @todoList.creation_date.strftime("%B %d, %Y") %>
-  </li>
-  <li>
     Due on:
     <%=  if @todoList.due_date != nil 
         @todoList.due_date.strftime("%B %d, %Y") 
