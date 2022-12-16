@@ -9,6 +9,8 @@
       <%= check_box_tag "priorities[#{p}]", "1",  @priorities_to_show.include?(p), class: 'form-check-input' %>
     </div>
   <% end %>
+  <%= label :todo_list, :time_frame, 'Time Frame' %>
+  <%= select :todo_list, :time_frame, ['all', '1d', '1w', '1m'], {selected: @default_time_frame}, :class => 'form-control col-1 d-inline' %>
   <%= submit_tag 'Refresh', id: 'priority_submit', class: 'btn btn-primary' %>
 <% end %>
 

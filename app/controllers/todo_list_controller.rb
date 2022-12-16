@@ -12,14 +12,21 @@ class TodoListController < ApplicationController
       @priorities_to_show = []
 
       priorities = params[:priorities]
+      todo_list = params[:todo_list]
+
+      if todo_list != nil && todo_list[:time_frame] != nil
+        @default_time_frame = todo_list[:time_frame]
+      else 
+        @default_time_frame = 'all'
+      end
 
       if priorities != nil
         priorities.each do |key, value|
           @priorities_to_show.append(key)
         end
-        @todoLists = TodoList.with_priorities(@priorities_to_show)
+        @todoLists = TodoList.with_priorities(@priorities_to_show, @default_time_frame)
       else 
-        @todoLists = TodoList.with_priorities(nil)
+        @todoLists = TodoList.with_priorities(nil, @default_time_frame)
       end
 
       @todoLists = @todoLists.order("due_date")
