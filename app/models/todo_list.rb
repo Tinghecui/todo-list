@@ -21,12 +21,4 @@ class TodoList < ActiveRecord::Base
 
         return list
     end
-
-  #   def self.with_due_dates(priority_list)
-  #     if priority_list != nil 
-  #       TodoList.where(priority: priority_list)
-  #     else 
-  #       TodoList.all
-  #     end 
-  # end
 end
