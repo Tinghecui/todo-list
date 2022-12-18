@@ -4,7 +4,7 @@
   <%= hidden_field :todo_list, :user_id, :value => current_user.id %>
   <br/>
   <%= label :todo_list, :name, 'Name', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :name, :class => 'form-control col-3 d-inline' %>
+  <%= text_field :todo_list, :name, :required => 'required', :class => 'form-control col-3 d-inline' %>
   <br/>
   <%= label :todo_list, :priority, 'Priority', :class => 'col-form-label my-3 col-2' %>
   <%= select :todo_list, :priority, ['High', 'Medium', 'Low'], {}, :class => 'form-control col-2 d-inline' %>
@@ -19,7 +19,7 @@
   <%= text_field :todo_list, :task_link, :class => 'form-control col-7 d-inline' %>
   <br/>
   <%= label :todo_list, :due_date, 'Due On', :class => 'col-form-label my-3 col-2' %>
-  <%= date_select :todo_list, :due_date, {}, :class => 'form-control col-2 d-inline' %>
+  <%= date_select :todo_list, :due_date, {:start_year => Date.current.year}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Save Changes', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>
