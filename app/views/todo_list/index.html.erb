@@ -12,8 +12,8 @@
   <%= label :todo_list, :time_frame, 'Time Frame' %>
   <%= select :todo_list, :time_frame, ['All', '1d', '1w', '1m'], {selected: @default_time_frame}, :class => 'form-control col-1 d-inline' %>
   <div class="form-check-inline"></div>
-  <%= label :todo_list, :done, 'Implemented' %>
-  <%= select :todo_list, :done, ['All', 'No', 'Yes'], {selected: @default_done}, :class => 'form-control col-1 d-inline' %>
+  <%= label :todo_list, :done, 'Status' %>
+  <%= select :todo_list, :done, ['All', 'In Process', 'Complete'], {selected: @default_done}, :class => 'form-control col-2 d-inline' %>
   <div class="form-check-inline"></div>
   <%= submit_tag 'Refresh', id: 'priority_submit', class: 'btn btn-primary' %>
 <% end %>
@@ -24,7 +24,7 @@
       <th width="17%">Priority</th>
       <th width="20%">Name</th>
       <th width="25%">Due Date</th>
-      <th>Implemented</th>
+      <th>Status</th>
       <th>More Info</th>
     </tr>
   </thead>

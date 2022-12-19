@@ -15,9 +15,9 @@ users.each do |u|
 end
 
 
-items = [{:name => 'Homework1', :user => User.find(1), :due_date => '16-Jan-2023', :task_size => "No",
+items = [{:name => 'Homework1', :user => User.find(1), :due_date => '16-Jan-2023', :task_size => "In Process",
 			:priority => 'High', :task_link => 'http://www.cs.columbia.edu/~junfeng/22fa-w4152/assignments.html'},
-		{:name => 'Physics', :user => User.find(1), :due_date => '20-Jan-2023', :task_size => "No", :priority => 'Medium'}
+		{:name => 'Physics', :user => User.find(1), :due_date => '20-Jan-2023', :task_size => "In Process", :priority => 'Medium'}
   	 ]
 
 items.each do |item|

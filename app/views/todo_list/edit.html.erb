@@ -21,8 +21,8 @@
       day: "#{@todoList.due_date.strftime("%d")}"
     }}, :class => 'form-control col-2 d-inline' %>
   <br/>
-  <%= label :todo_list, :task_size, 'Implemented', :class => 'col-form-label my-3 col-2' %>
-  <%= select :todo_list, :task_size, ['No', 'Yes'], {selected: "#{@todoList.task_size}"}, :class => 'form-control col-2 d-inline' %>
+  <%= label :todo_list, :task_size, 'Status', :class => 'col-form-label my-3 col-2' %>
+  <%= select :todo_list, :task_size, ['In Process', 'Complete'], {selected: "#{@todoList.task_size}"}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Update Task Info', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>

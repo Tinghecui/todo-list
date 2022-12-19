@@ -18,8 +18,8 @@
   <%= label :todo_list, :due_date, 'Due On', :class => 'col-form-label my-3 col-2' %>
   <%= date_select :todo_list, :due_date, {:start_year => Date.current.year}, :class => 'form-control col-2 d-inline' %>
   <br/>
-  <%= label :todo_list, :task_size, 'Implemented', :class => 'col-form-label my-3 col-2' %>
-  <%= select :todo_list, :task_size, ['No', 'Yes'], {}, :class => 'form-control col-2 d-inline' %>
+  <%= label :todo_list, :task_size, 'Status', :class => 'col-form-label my-3 col-2' %>
+  <%= select :todo_list, :task_size, ['In Process', 'Complete'], {}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Save Changes', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>
