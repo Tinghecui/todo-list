@@ -14,6 +14,9 @@ module NavigationHelpers
     case page_name
 
     when /^the (RottenPotatoes )?home\s?page$/ then '/todo_list'
+    when /^the sign up page$/ then '/users/sign_up'
+    when /^the log in page$/ then '/users/sign_in'
+    when /^the edit profile page$/ then '/users/edit'
 
     when /^the edit page for "(.*)"$/
       todo_id = TodoList.find_by(name: $1).id

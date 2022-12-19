@@ -6,10 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+users = [
+		{:email => 'test123@gmail.com', :password => '123456',},
+  	 ]
 
-items = [{:name => 'Homework1', :creation_date => '10-Nov-2022', :due_date => '11-Nov-2022',
-			:priority => '1', :task_link => 'http://www.cs.columbia.edu/~junfeng/22fa-w4152/assignments.html'},
-		{:name => 'Physics', :creation_date => '15-Nov-2022', :due_date => '25-Nov-2022', :priority => '2'}
+users.each do |u|
+	User.create!(u)
+end
+
+
+items = [{:name => 'Homework1', :user => User.find(1), :due_date => '16-Jan-2023', :task_size => "In Process",
+			:priority => 'High', :task_link => 'http://www.cs.columbia.edu/~junfeng/22fa-w4152/assignments.html'},
+		{:name => 'Physics', :user => User.find(1), :due_date => '20-Jan-2023', :task_size => "In Process", :priority => 'Medium'}
   	 ]
 
 items.each do |item|

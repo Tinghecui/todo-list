@@ -8,15 +8,24 @@
 ### Steps to run:  
 ```
 bundle install --without production  
-bin/rake db:setup # shorthand for db:create, db:migrate, db:seed  
+bin/rake db:migrate
+bin/rake db:seed
 rails server -b 0.0.0.0  
 ```
 
+### Steps to test:  
+```
+bundle exec rake spec
+bundle exec cucumber
+```
+
 ### Heroku deployment link
-[Heroku Link](https://mysterious-chamber-16003.herokuapp.com/todo_list)
+[Heroku Link](https://gentle-ridge-18175.herokuapp.com)
 
 ### Environment & Other details:  
-Branch - Master   
+Branch - proj-iter2  
 Ruby version -  2.6.8  
 OS - Mac  
+Devise Authentication - Devise 4.7.3  [Devise](https://github.com/heartcombo/devise)
+
 

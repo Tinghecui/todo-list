@@ -1,14 +1,12 @@
 <h2 class="my-4">Edit Existing Task</h2>
 
 <%= form_tag todo_list_path(@todoList), :method => :put do %>
+  <%= hidden_field :todo_list, :user_id, :value => current_user.id %>
   <%= label :todo_list, :name, 'Name', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :name, :value => "#{@todoList.name}", :class => 'form-control col-3 d-inline' %>
+  <%= text_field :todo_list, :name, :value => "#{@todoList.name}", :required => 'required', :class => 'form-control col-3 d-inline' %>
   <br/>
   <%= label :todo_list, :priority, 'Priority', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :priority, :value => "#{@todoList.priority}", :class => 'form-control col-3 d-inline' %>
-  <br/>
-  <%= label :todo_list, :task_size, 'Task Size', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :task_size, :value => "#{@todoList.task_size}", :class => 'form-control col-3 d-inline' %>
+  <%= select :todo_list, :priority, ['High', 'Medium', 'Low'], {selected: "#{@todoList.priority}"}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= label :todo_list, :estimate_time, 'Estimate Time', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :estimate_time, :value => "#{@todoList.estimate_time}", :class => 'form-control col-3 d-inline' %>
@@ -16,19 +14,15 @@
   <%= label :todo_list, :task_link, 'Task Link', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :task_link, :value => "#{@todoList.task_link}", :class => 'form-control col-7 d-inline' %>
   <br/>
-  <%= label :todo_list, :creation_date, 'Create On', :class => 'col-form-label my-3 col-2'  %>
-  <%= date_select :todo_list, :creation_date, {default: {
-      year: "#{@todoList.creation_date.strftime("%Y")}", 
-      month: "#{@todoList.creation_date.strftime("%m")}", 
-      day: "#{@todoList.creation_date.strftime("%d")}"
-    }}, :class => 'form-control col-2 d-inline' %>
-  <br/>
   <%= label :todo_list, :due_date, 'Due On', :class => 'col-form-label my-3 col-2' %>
-  <%= date_select :todo_list, :due_date, {default: {
+  <%= date_select :todo_list, :due_date, {:start_year => Date.current.year, default: {
       year: "#{@todoList.due_date.strftime("%Y")}", 
       month: "#{@todoList.due_date.strftime("%m")}", 
       day: "#{@todoList.due_date.strftime("%d")}"
     }}, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= label :todo_list, :task_size, 'Status', :class => 'col-form-label my-3 col-2' %>
+  <%= select :todo_list, :task_size, ['In Process', 'Complete'], {selected: "#{@todoList.task_size}"}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Update Task Info', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>

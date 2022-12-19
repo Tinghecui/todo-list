@@ -8,3 +8,8 @@
 /log/
 /tmp/
 /vendor/bundle
+
+.DS_Store
+Gemfile
+Gemfile.lock
+Gemfile
