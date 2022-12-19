@@ -6,7 +6,6 @@ class CreateTodoLists < ActiveRecord::Migration
       t.string :priority
       t.string :task_link
       t.string :estimate_time
-      t.datetime :creation_date
       t.datetime :due_date
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:

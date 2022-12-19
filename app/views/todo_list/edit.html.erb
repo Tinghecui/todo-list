@@ -8,9 +8,6 @@
   <%= label :todo_list, :priority, 'Priority', :class => 'col-form-label my-3 col-2' %>
   <%= select :todo_list, :priority, ['High', 'Medium', 'Low'], {selected: "#{@todoList.priority}"}, :class => 'form-control col-2 d-inline' %>
   <br/>
-  <%= label :todo_list, :task_size, 'Task Size', :class => 'col-form-label my-3 col-2' %>
-  <%= text_field :todo_list, :task_size, :value => "#{@todoList.task_size}", :class => 'form-control col-3 d-inline' %>
-  <br/>
   <%= label :todo_list, :estimate_time, 'Estimate Time', :class => 'col-form-label my-3 col-2' %>
   <%= text_field :todo_list, :estimate_time, :value => "#{@todoList.estimate_time}", :class => 'form-control col-3 d-inline' %>
   <br/>
@@ -23,6 +20,9 @@
       month: "#{@todoList.due_date.strftime("%m")}", 
       day: "#{@todoList.due_date.strftime("%d")}"
     }}, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= label :todo_list, :task_size, 'Implemented', :class => 'col-form-label my-3 col-2' %>
+  <%= select :todo_list, :task_size, ['No', 'Yes'], {selected: "#{@todoList.task_size}"}, :class => 'form-control col-2 d-inline' %>
   <br/>
   <%= submit_tag 'Update Task Info', :class => 'btn btn-primary my-3' %>
   <%= link_to 'Cancel', todo_list_index_path, :class => 'btn btn-secondary' %>

@@ -10,16 +10,21 @@
     </div>
   <% end %>
   <%= label :todo_list, :time_frame, 'Time Frame' %>
-  <%= select :todo_list, :time_frame, ['all', '1d', '1w', '1m'], {selected: @default_time_frame}, :class => 'form-control col-1 d-inline' %>
+  <%= select :todo_list, :time_frame, ['All', '1d', '1w', '1m'], {selected: @default_time_frame}, :class => 'form-control col-1 d-inline' %>
+  <div class="form-check-inline"></div>
+  <%= label :todo_list, :done, 'Implemented' %>
+  <%= select :todo_list, :done, ['All', 'No', 'Yes'], {selected: @default_done}, :class => 'form-control col-1 d-inline' %>
+  <div class="form-check-inline"></div>
   <%= submit_tag 'Refresh', id: 'priority_submit', class: 'btn btn-primary' %>
 <% end %>
 
 <table class="table table-striped col-md-12" id="todoList">
   <thead>
     <tr>
-      <th>Priority</th>
-      <th>Name</th>
-      <th>Due Date</th>
+      <th width="17%">Priority</th>
+      <th width="20%">Name</th>
+      <th width="25%">Due Date</th>
+      <th>Implemented</th>
       <th>More Info</th>
     </tr>
   </thead>
@@ -38,6 +43,9 @@
               <%= item.due_date.strftime("%B %d, %Y") %>
             </td>
             <td>
+              <%= item.task_size %>
+            </td>
+            <td>
               <%= link_to "More about #{item.name}", todo_list_path(item) %>
             </td>
           </tr>
@@ -51,6 +59,9 @@
             </td>
             <td>
               <%= item.due_date.strftime("%B %d, %Y") %>
+            </td>
+            <td>
+              <%= item.task_size %>
             </td>
             <td>
               <%= link_to "More about #{item.name}", todo_list_path(item) %>

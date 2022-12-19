@@ -11,10 +11,6 @@
     <%= @todoList.task_link%>
   </li>
   <li>
-    Task Size:
-    <%= @todoList.task_size%>
-  </li>
-  <li>
     Estimate Time:
     <%= @todoList.estimate_time%>
   </li>
@@ -23,6 +19,10 @@
     <%=  if @todoList.due_date != nil 
         @todoList.due_date.strftime("%B %d, %Y") 
     end   %>
+  </li>
+  <li>
+    Implemented:
+    <%= @todoList.task_size%>
   </li>
 </ul>
 

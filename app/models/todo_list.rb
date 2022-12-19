@@ -12,7 +12,7 @@ class TodoList < ActiveRecord::Base
         ['High', 'Medium', 'Low']
     end 
 
-    def self.with_priorities(priority_list, time_frame)
+    def self.with_priorities(priority_list, time_frame, done)
         if priority_list != nil 
           list = TodoList.where(priority: priority_list)
         else 
@@ -26,6 +26,10 @@ class TodoList < ActiveRecord::Base
         elsif time_frame == '1m'
           list = list.where(due_date: Date.today..1.month.from_now)
         end 
+
+        if done != 'All'
+          list = list.where(task_size: done)
+        end
 
         return list
     end
