@@ -1,12 +1,15 @@
+@@ -1,11 +1,100 @@
 require 'rails_helper'
 
 describe TodoList do
   it "is valid with valid attributes" do
     expect(TodoList.new).to be_valid
   end
+  
 
   describe 'find' do
     it 'should add new task' do
+      TodoList.create(:name => "hw1", :priority =>"1")
       TodoList.create(:name => "hw1", :priority =>"High")
       expect(TodoList.find_by(:name => 'hw1')).to_not be_nil
     end
@@ -18,6 +21,40 @@ describe TodoList do
       expect(TodoList.find_by(:name => 'hw2')).to_not be_nil
     end
   end
+
+  describe 'find' do
+    it 'should return all the pirority' do
+      TodoList.create(:name => "hw3", :priority =>"Low")
+      expect(TodoList.all_priorities).to match_array(['High', 'Medium', 'Low']) 
+    end
+  end
+
+
+  describe 'find' do
+    it 'should return all the tasks' do
+      expect(TodoList.with_priorities(nil)).to eq(TodoList.all)
+    end
+  end
+
+  describe 'find' do
+    it 'should return low pirority' do
+      expect(TodoList.with_priorities("Low")).to eq(TodoList.where(priority: "Low"))
+    end
+  end
+
+  describe 'find' do
+    it 'should return Medium pirority' do
+      expect(TodoList.with_priorities("Medium")).to eq(TodoList.where(priority: "Medium"))
+    end
+  end
+
+  describe 'find' do
+    it 'should return High pirority' do
+      expect(TodoList.with_priorities("High")).to eq(TodoList.where(priority: "High"))
+    end
+  end
+
+
 
   describe 'find' do
     it 'should edit current task' do
