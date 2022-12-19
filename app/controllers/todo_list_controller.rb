@@ -49,7 +49,7 @@ class TodoListController < ApplicationController
         flash[:notice] = "#{@todoList.name} was successfully created."
         redirect_to todo_list_index_path
       rescue ActiveRecord::RecordInvalid => exception
-        flash[:warning] =  "Due date should not be in the past!"
+        flash[:warning] =  "Due date should not be invalid or in the past!"
         redirect_to new_todo_list_path
       end
     end
@@ -65,7 +65,7 @@ class TodoListController < ApplicationController
         flash[:notice] = "#{@todoList.name} was successfully updated."
         redirect_to todo_list_path(@todoList)
       rescue ActiveRecord::RecordInvalid => exception
-        flash[:warning] =  "Due date should not be in the past!"
+        flash[:warning] =  "Due date should not be invalid or in the past!"
         redirect_to edit_todo_list_path(@todoList)
       end
     end
