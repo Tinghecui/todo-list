@@ -41,13 +41,13 @@ RSpec.describe TodoListController, type: :controller do
   describe "EDIT the task" do
     login_user
     it "should render the edit template" do
-      task = TodoList.create!(name: 'hw3', due_date: '2022-11-26')
+      task = TodoList.create!(name: 'hw3', due_date: '2023-1-26')
       get :edit, :id => task.id
       expect(response).to render_template("todo_list/edit")
     end
     it "should update info" do
       TodoList.delete_all
-      task = TodoList.create(name: 'hw3', due_date: '2022-11-26')
+      task = TodoList.create(name: 'hw3', due_date: '2023-1-26')
       post :update, :id => 1, :todo_list => {:priority=> "Low"}
       expect(response).to redirect_to todo_list_path(1)
     end
@@ -55,7 +55,7 @@ RSpec.describe TodoListController, type: :controller do
 
   describe "GET detail" do
     it "should render show template" do
-      task = TodoList.create!(name: 'hw3', due_date: '2022-11-26')
+      task = TodoList.create!(name: 'hw3', due_date: '2023-1-26')
       get :show, :id => task.id
       expect(response).to render_template("todo_list/show")
     end
@@ -64,7 +64,7 @@ RSpec.describe TodoListController, type: :controller do
   describe 'DELETE a task' do
     login_user
     it 'should delete the task' do
-      task = TodoList.create!(name: 'hw3', due_date: '2022-11-26')
+      task = TodoList.create!(name: 'hw3', due_date: '2023-1-26')
       delete :destroy, :id => task.id
       expect {TodoList.find(task.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end

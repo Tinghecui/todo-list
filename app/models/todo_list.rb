@@ -10,7 +10,7 @@ class TodoList < ActiveRecord::Base
     end    
 
     def due_date_cannot_be_invalid
-      if !Date.valid_date?(due_date.year, due_date.month, due_date.day)
+      if due_date.present? && !Date.valid_date?(due_date.year, due_date.month, due_date.day)
         errors.add(:due_date, "can't be invalid")
       end
     end    
