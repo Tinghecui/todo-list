@@ -24,6 +24,37 @@ RSpec.describe TodoListController, type: :controller do
     end
   end
 
+  describe "GET " do
+    login_user
+    context 'index with time frame' do
+      it 'should return 200:OK' do
+        get :index, todo_list:{:time_frame=> '1d'}
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
+
+  describe "GET " do
+    login_user
+    context 'index with done' do
+      it 'should return 200:OK' do
+        get :index, todo_list:{:done=> 'Complete'}
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
+  describe "GET " do
+    login_user
+    context 'index with pirority' do
+      it 'should return 200:OK' do
+        get :index, :priorities => ['High']
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
   describe "GET index" do
     it "should render index template" do
       get :index
@@ -85,6 +116,8 @@ RSpec.describe TodoListController, type: :controller do
       expect {TodoList.find(task.id)}.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
+
+
   # describe 'Use movie helper' do
   #   login_user
   #   it 'should Use movie helper' do
