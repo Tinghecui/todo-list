@@ -8,6 +8,7 @@
 ### Steps to run:  
 ```
 bundle install --without production  
+bin/rake db:migrate
 bin/rake db:reset
 rails server -b 0.0.0.0  
 ```
