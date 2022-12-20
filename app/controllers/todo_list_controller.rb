@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+require 'json'
 class TodoListController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     def show
@@ -47,6 +50,31 @@ class TodoListController < ApplicationController
       begin
         @todoList = TodoList.create!(todo_list_params)
         flash[:notice] = "#{@todoList.name} was successfully created."
+        uri = URI.parse("https://api.courier.com/send")
+        request = Net::HTTP::Post.new(uri)
+        request["Authorization"] = "Bearer pk_prod_BDZ9NS78QYMS5JK9QGZZFQBRNV8E"
+        request.body = JSON.dump({
+          "message" => {
+            "to" => {
+              "email" => current_user.email
+            },
+            "content" => {
+              "title" => "You have created a new task!",
+              "body" => "Do not forget to finish your new task and check the todo list website for more task! Here is your name of your new task: {{joke}}"
+            },
+            "data" => {
+              "joke" => @todoList.name
+            }
+          }
+        })
+
+        req_options = {
+          use_ssl: uri.scheme == "https",
+        }
+
+        response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
+          http.request(request)
+        end
         redirect_to todo_list_index_path
       rescue ActiveRecord::RecordInvalid => exception
         flash[:warning] =  "Due date should not be invalid or in the past!"
