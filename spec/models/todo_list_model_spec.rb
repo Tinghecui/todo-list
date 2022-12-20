@@ -25,32 +25,21 @@ describe TodoList do
       TodoList.create(:name => "hw3", :priority =>"Low")
       expect(TodoList.all_priorities).to match_array(['High', 'Medium', 'Low']) 
     end
-  end
-
-
-  describe 'find' do
     it 'should return all the tasks' do
       expect(TodoList.with_priorities(nil, "All", "All")).to eq(TodoList.all)
     end
-  end
-
-  describe 'find' do
     it 'should return low pirority' do
       expect(TodoList.with_priorities("Low", "All", "All")).to eq(TodoList.where(priority: "Low"))
     end
-  end
-
-  describe 'find' do
     it 'should return Medium pirority' do
       expect(TodoList.with_priorities("Medium", "All", "All")).to eq(TodoList.where(priority: "Medium"))
     end
-  end
-
-  describe 'find' do
     it 'should return High pirority' do
       expect(TodoList.with_priorities("High", "All", "All")).to eq(TodoList.where(priority: "High"))
     end
+
   end
+
 
   describe 'find' do
     it 'should return tasks with High and Low pirority' do
