@@ -11,16 +11,13 @@ describe TodoList do
       TodoList.create(:name => "hw1", :priority =>"High")
       expect(TodoList.find_by(:name => 'hw1')).to_not be_nil
     end
-  end
-
-  describe 'find' do
     it 'should add new task' do
       TodoList.create(:name => "hw2", :priority =>"Medium", :task_link => "www.google.com")
       expect(TodoList.find_by(:name => 'hw2')).to_not be_nil
     end
   end
 
-  describe 'find' do
+  describe 'with_priorities' do
     it 'should return all the pirority' do
       TodoList.create(:name => "hw3", :priority =>"Low")
       expect(TodoList.all_priorities).to match_array(['High', 'Medium', 'Low']) 
@@ -41,30 +38,21 @@ describe TodoList do
   end
 
 
-  describe 'find' do
+  describe 'with priorities' do
     it 'should return tasks with High and Low pirority' do
       TodoList.create(:name => "hw1", :priority =>"High", :due_date => "2023-1-16")
       TodoList.create(:name => "hw1", :priority =>"Medium", :due_date => "2023-1-17")
       TodoList.create(:name => "hw2", :priority =>"Low", :due_date => "2023-1-20")
       expect(TodoList.with_priorities(["High", "Low"], "All", "All")).to eq(TodoList.where(priority: ["High", "Low"]))
     end
-  end
-
-  describe 'find' do
     it 'should return all the tasks within 1 month' do
       TodoList.create(:name => "hw1", :priority =>"High", :due_date => "2023-1-16")
       expect(TodoList.with_priorities(nil, "1m", "All")).to_not be_nil
     end
-  end
-
-  describe 'find' do
     it 'should return tasks with status in process' do
       TodoList.create(:name => "hw1", :priority =>"High", :due_date => "2023-1-16", :task_size => "In Process")
       expect(TodoList.with_priorities(nil, "All", "In Process")).to eq(TodoList.where(task_size: "In Process"))
     end
-  end
-
-  describe 'find' do
     it 'should return tasks with status complete' do
       TodoList.create(:name => "hw1", :priority =>"High", :due_date => "2023-1-16", :task_size => "In Process")
       TodoList.create(:name => "hw2", :priority =>"Medium", :due_date => "2023-1-16", :task_size => "Complete")
